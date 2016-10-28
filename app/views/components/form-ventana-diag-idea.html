@@ -1,0 +1,26 @@
+<form action='index.php' method='post'>
+           <p style='font-weight: bold;'>{{TITULO2}}</p><br>
+           <input type='hidden' name='mode' value='{{RUTA}}'>
+           <table id="tablita" class="table">
+                <thead>
+                    <th>Id</th>
+                    <th>Nombres</th>
+                    <th>Apellidos</th>
+                    <th>C.C.</th>
+                    <th>Idea</th>
+                    <th>Fecha</th>
+                </thead>
+                <tbody>
+                {{OPTION}}
+                </tbody>
+                <tfoot>
+                    <th>Id</th>
+                    <th>Nombres</th>
+                    <th>Apellidos</th>
+                    <th>C.C.</th>
+                    <th>Idea</th>
+                    <th>Fecha</th>
+                </tfoot>
+           </table>
+           <input type="submit" value="Seleccionar diagnóstico">
+		    </form>	
