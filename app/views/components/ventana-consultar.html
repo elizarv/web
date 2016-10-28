@@ -4,15 +4,33 @@
  <div class="main">
      <div class="container contact">
    <h2>{{TITULO_VENTANA}}</h2>
-            <form id="consultar_cc">
-            <input type="hidden" name="mode" value="consultar-cc-diag-idea">
-            <input type="hidden" name="tipo-operacion" value="{{TIPO_OPERACION}}">
-			<input type="number" class="name" name="cc" placeholder="{{PLACEHOLDER}}" required="">
-			<input type="submit"  value="CONSULTAR C.C.">
-             
-             </form>
-             <br> 
-<div id="consulta_Num_Consecutivos" align="center">
+           <form action='index.php' method='post'>
+           <p style='font-weight: bold;'>{{TITULO2}}</p><br>
+           <input type='hidden' name='mode' value='{{RUTA}}'>
+           <table id="example" class="table table-bordered table-hover">
+                <thead>
+                    <th>Id</th>
+                    <th>Nombres</th>
+                    <th>Apellidos</th>
+                    <th>C.C.</th>
+                    <th>Idea</th>
+                    <th>Fecha</th>
+                </thead>
+                <tbody>
+                {{OPTION}}
+                </tbody>
+                <tfoot>
+                    <th>Id</th>
+                    <th>Nombres</th>
+                    <th>Apellidos</th>
+                    <th>C.C.</th>
+                    <th>Idea</th>
+                    <th>Fecha</th>
+                </tfoot>
+           </table>
+           <input type="submit" value="Seleccionar diagnóstico">
+		    </form>	
+
  
    </div></div></div>
     <script>

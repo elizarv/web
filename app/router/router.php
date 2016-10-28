@@ -70,10 +70,6 @@
                      $this->diagnosticoIdea->agregarFormDiagnosticoIdea($_POST);
                         break;
 
-                      case "consultar-cc-diag-idea":
-                     $this->diagnosticoIdea->consultarCcDiagIdea($_POST["cc"],$_POST["tipo-operacion"]);
-                        break;
-
                     case "procesar-edit-diag-idea":
                     $this->diagnosticoIdea->editarFormDiagnosticoIdea($_POST);
                         break;

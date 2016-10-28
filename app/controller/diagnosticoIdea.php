@@ -165,8 +165,29 @@
             $this->view = $this->renderView($this->view, "{{SESION}}", $menu);
             $this->view = $this->renderView($this->view, "{{CONTENT}}", $ventana);
             $this->view = $this->renderView($this->view, "{{TITULO_VENTANA}}", "Editar diagnostico de la idea");
-            $this->view = $this->renderView($this->view, "{{PLACEHOLDER}}", "Ingrese el numero de la cedula");
-            $this->view = $this->renderView($this->view, "{{TIPO_OPERACION}}", "EDITAR");
+            $this->view = $this->renderView($this->view, "{{TITULO2}}","Seleccione el diagnostico que desea consultar.");
+            $array=$this->diagnosticoIdeaModel->consultarDiagIdea();
+            $sizeArray=sizeof($array);
+            $option="";
+            $elementotabla = $this->getTemplate("./app/views/components/elemento-tabla.html");
+
+           if($sizeArray>0){
+           foreach($array as $element) {
+                $temp = $elementotabla;
+                $temp = $this->renderView($temp, "{{NUMC}}", $element['Num_consecutivo']);
+                $temp = $this->renderView($temp, "{{NOMBRES}}", $element['Nombres']);
+                $temp = $this->renderView($temp, "{{APELLIDOS}}", $element['Apellidos']);
+                $temp = $this->renderView($temp, "{{CC}}", $element['CC']);
+                $temp = $this->renderView($temp, "{{IDEA}}", $element['Idea']);
+                $temp = $this->renderView($temp, "{{FECHA}}", $element['Fecha']);
+                $option .= $temp;
+            }
+            $this->view=$this->renderView($this->view, "{{OPTION}}",$option);
+            echo $this->view;
+           }else{
+               echo "<h2>No Existen Diagnosticos</h2>";
+           }
+
             $this->showView($this->view);    
 
         }
@@ -177,8 +198,28 @@
             $this->view = $this->renderView($this->view, "{{SESION}}", $menu);
             $this->view = $this->renderView($this->view, "{{CONTENT}}", $ventana);
             $this->view = $this->renderView($this->view, "{{TITULO_VENTANA}}", "Consulta el diagnostico de la idea");
-            $this->view = $this->renderView($this->view, "{{PLACEHOLDER}}", "Ingrese el numero de la cedula");
-            $this->view = $this->renderView($this->view, "{{TIPO_OPERACION}}", "CONSULTAR");
+            $this->view = $this->renderView($this->view, "{{TITULO2}}","Seleccione el diagnostico que desea consultar.");
+            $array=$this->diagnosticoIdeaModel->consultarDiagIdea();
+            $sizeArray=sizeof($array);
+            $option="";
+            $elementotabla = $this->getTemplate("./app/views/components/elemento-tabla.html");
+
+           if($sizeArray>0){
+           foreach($array as $element) {
+                $temp = $elementotabla;
+                $temp = $this->renderView($temp, "{{NUMC}}", $element['Num_consecutivo']);
+                $temp = $this->renderView($temp, "{{NOMBRES}}", $element['Nombres']);
+                $temp = $this->renderView($temp, "{{APELLIDOS}}", $element['Apellidos']);
+                $temp = $this->renderView($temp, "{{CC}}", $element['CC']);
+                $temp = $this->renderView($temp, "{{IDEA}}", $element['Idea']);
+                $temp = $this->renderView($temp, "{{FECHA}}", $element['Fecha']);
+                $option .= $temp;
+            }
+            $this->view=$this->renderView($this->view, "{{OPTION}}",$option);
+            echo $this->view;
+           }else{
+               echo "<h2>No Existen Diagnosticos</h2>";
+           }
             $this->showView($this->view);    
 
         }
