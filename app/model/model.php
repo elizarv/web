@@ -4,10 +4,10 @@ class Model {
     private $connection;
 
     public function connect(){
-        $server="localhost";
-        $user="root";
-        $pass="";
-        $bd="proyecto3";
+        $server="sandbox2.ufps.edu.co";
+        $user="1151226";
+        $pass="1151226";
+        $bd="1151226";
         $this->connection = mysqli_connect($server,$user,$pass,$bd) or  die(("Error " . mysqli_error($this->connection)));
     }
 
