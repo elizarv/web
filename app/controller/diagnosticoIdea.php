@@ -183,21 +183,15 @@
 
         }
 
-     public function consultarCcDiagIdea($cc, $tipo_operacion){
-           $array=$this->diagnosticoIdeaModel->consultarCcDiagIdea($cc);
+     public function consultarCcDiagIdea(){
+           $array=$this->diagnosticoIdeaModel->consultarDiagIdea();
            $sizeArray=sizeof($array);
            $option="";
            $form=$this->getTemplate("./app/views/components/form-ventana-diag-idea.html");
 
-           if($tipo_operacion=="EDITAR"){
-           $form = $this->renderView($form, "{{TITULO2}}","Seleccione el diagnostico que desea editar.");
-           $form = $this->renderView($form, "{{RUTA}}","seleccionar-editar-diagnostico-idea");
-           $form = $this->renderView($form, "{{VALOR_BOTON}}","EDITAR DIAGNOSTICO IDEA");
-           }else{
            $form = $this->renderView($form, "{{TITULO2}}","Seleccione el diagnostico que desea consultar.");
            $form = $this->renderView($form, "{{RUTA}}","seleccionar-consultar-diagnostico-idea");
            $form = $this->renderView($form, "{{VALOR_BOTON}}","CONSULTAR DIAGNOSTICO IDEA");
-           }
            $elementotabla = $this->getTemplate("./app/views/components/elemento-tabla.html");
 
            if($sizeArray>0){
@@ -211,12 +205,6 @@
                 $temp = $this->renderView($temp, "{{FECHA}}", $element['Fecha']);
                 $option .= $temp;
             }
-    
-            /*if($sizeArray>0){
-             foreach($array as $element){              
-                 list($fecha)=split(" ", $element["Fecha"], 2);
-                $option=$option."<option value='".$element["Num_consecutivo"]."'>01-000".$element["Num_consecutivo"]."/".$fecha."/".$element["Idea"]."</option>";  
-            }*/
             $form=$this->renderView($form, "{{OPTION}}",$option);
             echo $form;
            }else{

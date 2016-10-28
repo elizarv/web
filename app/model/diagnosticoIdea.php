@@ -68,9 +68,9 @@ class diagnosticoIdeaModel extends Model {
     }
 
 
-    public function consultarCcDiagIdea($cc){
+    public function consultarDiagIdea(){
         $this->connect();
-        $consulta = "SELECT Num_consecutivo, Nombres, Apellidos, CC, Idea, Fecha FROM diagnostico_idea  WHERE CC=".$cc;
+        $consulta = "SELECT Num_consecutivo, Nombres, Apellidos, CC, Idea, Fecha FROM diagnostico_idea";
         $query = $this->query($consulta);
         $this->terminate();
         $array=array();
