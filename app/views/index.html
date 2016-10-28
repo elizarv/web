@@ -72,43 +72,36 @@
                 </div>
             </div>	
         </div>
-        <script type="text/javascript" src="public/js/jquery.js"></script>
-    <script type="text/javascript" src="public/js/datatables.js"></script>
+        <script type="text/javascript" src="public/js/jquery-1.12.3.js"></script>
+    <script type="text/javascript" src="public/js/jquery.datatables.min.js"></script>
+    <script src="public/js/easyResponsiveTabs.js" type="text/javascript"></script>
+    <script type="text/javascript">
+            $(document).ready(function () {
+                $('#horizontalTab').easyResponsiveTabs({
+                    type: 'default', //Types: default, vertical, accordion           
+                    width: 'auto', //auto or any width like 600px
+                    fit: true   // 100% fit in a container
+                });
+            });
+        </script>
 	<script>
-	/*if(document.querySelectorAll("#tablita").length == 1) {
-		$(document).ready(function() {
-		    $('#tablita').DataTable();
-		} );
-	}*/
-	if(document.querySelectorAll("#tablita").length == 1) {
-	$(document).ready(function() {
-    // Setup - add a text input to each footer cell
-    $('#tablita tfoot th').each( function () {
-        var title = $(this).text();
-        $(this).html( '<input type="text" placeholder="Buscar '+title+'" />' );
+	
+ 	
+$(document).ready(function() {
+    var table = $('#example').DataTable();
+ 
+    $('#example tbody').on( 'click', 'tr', function () {
+        if ( $(this).hasClass('active') ) {
+            $(this).removeClass('active');
+        }
+        else {
+            table.$('tr.active').removeClass('active');
+            $(this).toggleClass('active');
+        }
     } );
  
-    // DataTable
-    var table = $('#tablita').DataTable(
-                {
-                "language": {
-                    "lengthMenu": "Mostrando _MENU_ resultados por pagina",
-                    "zeroRecords": "No encontrado",
-                    "info": "Mostrando pagina _PAGE_ de _PAGES_",
-                    "infoEmpty": "No disponible",
-                    "infoFiltered": "(filtrado de _MAX_ registros)",
-                    "search": "Buscar: ",
-                    "paginate": {
-                        "first":      "Primero",
-                        "last":       "Ultimo",
-                        "next":       "Siguiente",
-                        "previous":   "Anterior"
-                    }
-                }
-            
-            });
-       
- 
+   
+} ); 
   
 </script>
  
